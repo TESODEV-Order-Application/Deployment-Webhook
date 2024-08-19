@@ -62,7 +62,7 @@ shutdown -h now
     ```
     docker login ghcr.io -u USERNAME -p <YOUR_PAT>
     
-    docker run -d -p 5000:5000  --name=webhook --restart always -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/studenthubproject/studenthub-dev:main
+    docker run -d -p 5000:5000  --name=webhook --restart always -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/tesodev-order-application/deployment-webhook:main
     ```
 * Removing and Reinstalling Guide
     * Remove Webhook Container
