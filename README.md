@@ -91,3 +91,7 @@ shutdown -h now
     ```
     docker run -d --name mongodb -e MONGO_INITDB_ROOT_USERNAME=<USR> -e MONGO_INITDB_ROOT_PASSWORD=<PDW> -p 27017:27017 -v mongodb:/data/db --restart always mongo:latest
     ```
+* For Second Database Deployment
+    ```
+    docker run -d --name mongodb_2 -e MONGO_INITDB_ROOT_USERNAME=<USR> -e MONGO_INITDB_ROOT_PASSWORD=<PDW> -p 27018:27017 -v mongodb_2:/data/db --restart always mongo:latest
+    ```
