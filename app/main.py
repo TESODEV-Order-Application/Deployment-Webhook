@@ -38,6 +38,12 @@ async def receive_payload():
             "ports": {"8080" : "8080"},
             "detach": True,
             "restart_policy": {"Name": "always"}
+        },
+        "rabbitmq-consumer": {
+            "name": "rabbitmq-consumer",
+            "image": "ghcr.io/tesodev-order-application/microservices-rabbitmq-consumer",
+            "detach": True,
+            "restart_policy": {"Name": "always"}
         }
     }
 
