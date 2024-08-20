@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV registry=ghcr.io
 ENV username=Raymon01
-ENV pat=AAAAAAAAAAAAAAAAA
+ENV pat=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
 
 # Set the working directory in the container
 WORKDIR /code
