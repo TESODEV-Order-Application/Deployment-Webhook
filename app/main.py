@@ -1,7 +1,6 @@
 from flask import Flask, request
 import docker
 import sys
-import json
 import os
 
 app = Flask(__name__)
@@ -17,27 +16,33 @@ async def hello():
 async def receive_payload():
     payload = request.json
     
-    ##Some security for the webhook##
-    api = {
-        "name": "studenthub-api",
-        "image": "ghcr.io/studenthubproject/studenthub-api",
-        "ports": {"8080" : "8080"},
-        "detach": True,
-        "restart_policy": {"Name": "always"}
+    #################################
+    services = {
+        "customer-service": {
+            "name": "customer-service",
+            "image": "ghcr.io/tesodev-order-application/microservices-customer-service",
+            "ports": {"8000" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        },
+        "order-service": {
+            "name": "order-service",
+            "image": "ghcr.io/tesodev-order-application/microservices-order-service",
+            "ports": {"8001" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        },
+        "gateway": {
+            "name": "gateway",
+            "image": "ghcr.io/tesodev-order-application/microservices-gateway",
+            "ports": {"8080" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        }
     }
 
-    web = {
-        "name": "studenthub-web",
-        "image": "ghcr.io/studenthubproject/studenthub-web",
-        "ports": {"3000" : "3000"},
-        "detach": True,
-        "restart_policy": {"Name": "always"}
-    }
-
-    if payload["repository"] == api["name"]:
-        payload = api
-    elif payload["repository"] == web["name"]:
-        payload = web
+    if payload["repository"] in services:
+        payload = services[payload["repository"]]
     else:
         return "Unauthorized"
     #################################
@@ -64,8 +69,6 @@ async def receive_payload():
     client.images.prune()
     
     return "Success"
-
-
 
 
 if __name__ == '__main__':
