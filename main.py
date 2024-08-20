@@ -41,6 +41,9 @@ async def receive_payload():
         }
     }
 
+    print(payload["repository"])
+    print("aaaa")
+    print(services[payload["repository"]])
     if payload["repository"] in services:
         payload = services[payload["repository"]]
     else:
