@@ -21,7 +21,7 @@ async def receive_payload():
         "customer-service": {
             "name": "customer-service",
             "image": "ghcr.io/tesodev-order-application/microservices-customer-service",
-            "ports": {"8000" : "8080"},
+            "ports": {"8000" : "8000"},
             "detach": True,
             "restart_policy": {"Name": "always"}
         },
