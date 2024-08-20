@@ -95,3 +95,16 @@ shutdown -h now
     ```
     docker run -d --name mongodb_2 -e MONGO_INITDB_ROOT_USERNAME=<USR> -e MONGO_INITDB_ROOT_PASSWORD=<PDW> -p 27018:27017 -v mongodb_2:/data/db --restart always mongo:latest
     ```
+
+## 6. Setting RabbitMQ
+* Deploy RabbitMQ
+    ```
+    docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+    ```
+* Change Password
+   ```
+   Default username: guest
+   Default password: guest
+   
+   Admin->guest->Update this user-><PASSWORD>->Update User
+   ```
