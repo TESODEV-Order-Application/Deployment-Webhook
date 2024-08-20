@@ -17,16 +17,32 @@ async def receive_payload():
     payload = request.json
     
     #################################
-    api = {
-        "name": "tesodev-api",
-        "image": "ghcr.io/tesodev/tesodev-api",
-        "ports": {"8080" : "8080"},
-        "detach": True,
-        "restart_policy": {"Name": "always"}
+    services = {
+        "customer_service": {
+            "name": "customer-service",
+            "image": "ghcr.io/tesodev-order-application/microservices-customer-service",
+            "ports": {"8000" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        },
+        "order_service": {
+            "name": "order-service",
+            "image": "ghcr.io/tesodev-order-application/microservices-order-service",
+            "ports": {"8001" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        },
+        "gateway": {
+            "name": "gateway",
+            "image": "ghcr.io/tesodev-order-application/microservices-gateway",
+            "ports": {"8080" : "8080"},
+            "detach": True,
+            "restart_policy": {"Name": "always"}
+        }
     }
 
-    if payload["repository"] == api["name"]:
-        payload = api
+    if payload["repository"] in services:
+        payload = services[payload["repository"]]
     else:
         return "Unauthorized"
     #################################
