@@ -1,5 +1,5 @@
 # Deployment-Webhook
-The webhook repository for the TESODEV OrderR Application Project
+The webhook repository for the TESODEV Order Application Project
 > Ubuntu 22.04
 
 > [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
