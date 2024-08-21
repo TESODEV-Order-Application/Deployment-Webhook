@@ -8,7 +8,7 @@ client = docker.from_env()
 
 
 @app.route('/')
-async def hello():
+async def hello(): 
     return "Service Up!"
 
 
