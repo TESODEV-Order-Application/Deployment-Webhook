@@ -1,9 +1,4 @@
 # Deployment-Webhook
-The webhook repository for the TESODEV Order Application Project
-> Ubuntu 22.04
-
-
-# Explanation of the Deployment Webhook
 >The deployment webhook is designed to automate the deployment process for the various microservices of the TESODEV Order Application. It is built using Flask and Docker, and it listens for incoming POST requests to trigger the deployment of specific services.
 
 ## How It Works
