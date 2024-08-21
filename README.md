@@ -28,7 +28,7 @@
 * ```Image Pruning```: After deployment, the webhook cleans up unused Docker images to save space.
 
 ### 5. Response
-* Upon successful deployment, the webhook responds with "Success". If there are any issues during the process, relevant error messages are printed to the server's standard error stream.
+* Upon successful deployment, the webhook responds with ```Success```. If there are any issues during the process, relevant error messages are printed to the server's standard error stream.
 
 # Setting up the Deployment Webhook
 * Important Webhook Notes
