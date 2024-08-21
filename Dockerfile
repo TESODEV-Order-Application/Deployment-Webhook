@@ -6,9 +6,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
-ENV registry=ghcr.io
-ENV username=Raymon01
-ENV pat=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
+
+ARG username
+ENV username=${username}
+
+ARG pat
+ENV pat=${pat}
 
 # Set the working directory in the container
 WORKDIR /code
